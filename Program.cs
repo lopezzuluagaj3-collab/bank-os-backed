@@ -14,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddMemoryCache();
 
 // ── CORS ─────────────────────────────────────────────────────────────────────
 builder.Services.AddCors(options =>
@@ -156,6 +157,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowAll");
 
 app.UseAuthentication();
+app.UseMiddleware<RateLimitMiddleware>();
 app.UseMiddleware<TenantMiddleware>();
 app.UseMiddleware<IdempotencyMiddleware>();
 app.UseAuthorization();
