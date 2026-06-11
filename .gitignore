@@ -1,0 +1,8 @@
+# Build outputs
+obj/
+bin/
+
+# Rider
+.idea/
+*.user
+rider.project.model.nuget.info

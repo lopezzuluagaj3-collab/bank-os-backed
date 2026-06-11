@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__Master=Host=10-0-2-78;Port=5432;Database=bankos_master;Username=postgres;Password=postgres
+      - Jwt__Key=super_secret_key_bankos_2025_hackathon
+      - Jwt__Issuer=bankos-api
+      - Jwt__Audience=bankos-client
+    restart: unless-stopped

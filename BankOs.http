@@ -1,0 +1,6 @@
+@BankOs_HostAddress = http://localhost:5014
+
+GET {{BankOs_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
