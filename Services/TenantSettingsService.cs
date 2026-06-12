@@ -54,12 +54,12 @@ public class TenantSettingsService : ITenantSettingsService
 
         await db.SaveChangesAsync();
 
-        await db.AppendAuditLogAsync(
-            adminUserId,
-            "UPSERT_TENANT_SETTINGS",
-            oldValue,
-            $"BankName:{dto.BankName}, TransferFee:{dto.TransferFee}, MainCurrency:{dto.MainCurrency}"
-        );
+        //await db.AppendAuditLogAsync(
+        //    adminUserId,
+        //   "UPSERT_TENANT_SETTINGS",
+        //   oldValue,
+        //   $"BankName:{dto.BankName}, TransferFee:{dto.TransferFee}, MainCurrency:{dto.MainCurrency}"
+        //);
 
         return ToDto(settings);
     }
