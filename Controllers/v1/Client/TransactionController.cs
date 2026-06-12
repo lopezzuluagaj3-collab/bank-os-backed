@@ -22,7 +22,7 @@ public class TransactionsController : ControllerBase
         Guid.Parse(User.FindFirst("user_id")!.Value);
 
     private bool IsAdmin =>
-        User.FindFirst("role")?.Value == "administrador";
+        User.FindFirst("http://schemas.microsoft.com/ws/2008/06/identity/claims/role")?.Value == "admin_global";
 
     /// <summary>
     /// POST /api/v1/transactions
@@ -85,7 +85,7 @@ public class TransactionsController : ControllerBase
     /// GET /api/v1/transactions — todas (solo admin)
     /// </summary>
     [HttpGet]
-    [Authorize(Policy = "AdminOnly")]
+    [Authorize(Policy = "AdminGlobal")]
     public async Task<IActionResult> GetAll()
     {
         var result = await _transactionService.GetAllAsync();
