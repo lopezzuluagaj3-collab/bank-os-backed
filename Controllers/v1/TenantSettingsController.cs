@@ -18,7 +18,7 @@ public class TenantSettingsController : ControllerBase
     }
 
     private Guid CurrentUserId =>
-        Guid.Parse(User.FindFirst("user_id")!.Value);
+        Guid.Parse(User.FindFirst("admin_id")!.Value);
 
     // GET /{slug}/api/v1/settings/public
     // Sin auth — Flutter lo llama antes del login para cargar branding
